@@ -1,8 +1,26 @@
 # DGPH
-Introduction to Digital Health for Global Public Health Master students with a pracitcal focus on web technologies, programming, and data visualization.
+Introduction to Digital Health for Global Public Health Master students with a practical focus on web technologies, programming, and data visualization.
 
-## Core Literature
+## Content and Literature
 
-Lecture: https://ebookcentral.proquest.com/lib/th-deggendorf/detail.action?docID=6311514&query=Digital%20Health%20Mobile%20and%20Wearable%20Devices%20for%20Participatory%20Health%20Applications
+Guiding Book: https://ebookcentral.proquest.com/lib/th-deggendorf/detail.action?docID=30285893
 
-Practice: https://ebookcentral.proquest.com/lib/th-deggendorf/detail.action?docID=30285893
+
+## A. Computers and Networking
+### 1. Digging Deeper - Understanding your machine
+### 2. Networking - The web and its infrastructure
+### 3. Hypertext - Web Technologies (HTML, CSS, Javascript)
+### 4. Data Exchange - Semantic Web Technologies and Interoperability
+
+## B. Automation and Scripting with Python
+### 1. Data Types
+### 2. Conditions
+### 3. Loops
+### 4. Functions
+
+## C. Data Visualization
+### 1. Storing and Loading Data
+### 2. Cleaning Data
+### 3. Visualizing Data
+### 4. Creating interactive Visualizations
+
