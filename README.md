@@ -10,11 +10,25 @@ Guiding Book: https://ebookcentral.proquest.com/lib/th-deggendorf/detail.action?
 
 ### 1. Digging Deeper - Understanding your machine
 
+- Interactive: The Status Quo and Future Outlook of Digital Health around the world
+- Hands-on: Webdevelopment 101: https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=30285893&ppg=117
+
+Reading: [Part 1, Chapter 4](https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=30285893&ppg=117)
+
 ### 2. Networking - The web and its infrastructure
 
-### 3. Hypertext - Web Technologies (HTML, CSS, Javascript)
+- Interactive: Servers, Clients, IPs and Protocols of the Internet
+- Hands-on: Serving HTML with Python
 
-### 4. Data Exchange - Semantic Web Technologies and Interoperability
+Reading: [Part 1, Chapter 1](https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=30285893&ppg=117)
+
+### 3. Presentation - Cascading Stylesheets (CSS)
+
+
+### 4. Visualization - Reading and Writing Data with Python and JavaScript
+
+Reading: [Part 1, Chapter 3](https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=30285893&ppg=117)
+
 
 ## B. Automation and Scripting with Python
 
