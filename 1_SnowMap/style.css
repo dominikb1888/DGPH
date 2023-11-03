@@ -2,7 +2,7 @@ body {
     display: grid;
     grid-template-areas:
       'nav nav nav nav nav'
-      'article article article aside aside';
+      'aside aside article article article';
     gap: 10px;
     background-color: #2196F3;
     padding: 10px;
@@ -67,9 +67,10 @@ body {
     border: 5px solid blueviolet;
   }
 
-  td.first {
+  tr:first-child td:first-child {
     border: 5px solid greenyellow;
   }
+
 
   b {
       display: block;
