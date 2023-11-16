@@ -42,9 +42,10 @@ Hands-on: [Chapter 10-11](https://ebookcentral.proquest.com/lib/th-deggendorf/re
 
 ---
 
-## B. Automation and Scripting with Python
+## B. Automation and Scripting with R
 
-Required Reading, Chapter 1-6: https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=7107722
+Excercise: https://www.appliedepi.org/live/, https://www.appliedepi.org/tutorial/
+Reading: https://epirhandbook.com/en/r-basics.html
 
 ### 1. Data Types
 
@@ -57,9 +58,10 @@ Required Reading, Chapter 1-6: https://ebookcentral.proquest.com/lib/th-deggendo
 
 ---
 
-## C. Data Visualization
+## C. Data Visualization with Shiny
 
-Required Reading, Part I-IV: https://ebookcentral.proquest.com/lib/th-deggendorf/detail.action?docID=30285041
+Framework: Shiny (and maybe Quarto, RMarkdown)
+Required Reading: https://r4ds.hadley.nz/
 
 ### 1. Storing and Loading Data
 
