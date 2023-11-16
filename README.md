@@ -70,3 +70,9 @@ Required Reading: https://r4ds.hadley.nz/
 ### 3. Visualizing Data
 
 ### 4. Creating interactive Visualizations
+
+
+---
+## Further Resources
+
+- https://r4epis.netlify.app/
