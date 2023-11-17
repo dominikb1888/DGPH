@@ -1,11 +1,12 @@
 body {
     display: grid;
     grid-template-areas:
-      'nav nav nav nav nav'
-      'aside aside article article article';
+      'nav nav nav nav nav nav'
+      'rticle article article article article aside';
     gap: 10px;
-    background-color: #2196F3;
     padding: 10px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 24px;
   }
   
   nav {
@@ -18,11 +19,11 @@ body {
   }
 
   article h1 {
-    color: red;
+
   }
 
   h1.jumbo {
-    font-size: 72px;
+
   }
 
   h1#key-visual {
@@ -30,25 +31,25 @@ body {
   }
 
   h2 {
-    color: white;
+    color: lightslategray;
   }
   
   aside {
       grid-area: aside;
+      padding: 20px;
+      font-size: .8rem
   }
   
   nav ol#menu li {
       display: block;
       float: left;
-      background-color: cornflowerblue;
-      font-family: Helvetica, Arial, sans-serif;
-      font-size: 24px;
+      background-color: lightslategray;
+  
       font-weight: bold;
       color: white;
-      border: 3px solid darkblue;
-      width: 300px;
+      border: 3px solid darkgrey;
       margin: 10px;
-      padding: 20px;
+      padding: 10px 20px;
       text-align: left;
   }
 
@@ -59,16 +60,17 @@ body {
   
   table {
       margin: 0;
-      font-size: 64px;
+      border-collapse: collapse;
   }
   
   td {
     padding: 20px;
-    border: 5px solid blueviolet;
+    border: 1px dotted grey;
+
   }
 
   tr:first-child td:first-child {
-    border: 5px solid greenyellow;
+    background: #eee;
   }
 
 
