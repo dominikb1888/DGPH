@@ -50,9 +50,12 @@ Reading: https://epirhandbook.com/en/r-basics.html
 
 ### 1. Data Types
 
-### 2. Conditions
+Prepare: R Basics: https://tutorials.appliedepi.org/app/basics
+Lecture: Data Types in R
 
-### 3. Loops
+### 2. Complex Data Types
+
+### 3. Conditions & Loops
 
 ### 4. Functions
 
