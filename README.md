@@ -38,6 +38,7 @@ Hands-on: [Cascading Stylesheets - Chapters 7-10](https://ebookcentral.proquest.
 ### 4. Responsive and Interactive Websites
 
 Hands-on: [Chapter 10-11](https://ebookcentral.proquest.com/lib/th-deggendorf/reader.action?docID=7275452&ppg=240)
+Tutorial: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Realizing_common_layouts_using_grids
 
 
 ---
