@@ -72,9 +72,9 @@ Required Reading: https://r4ds.hadley.nz/
 
 ### 1. Visualizing Data with ggplot (Module 6)
 
-### 2. Creating interactive Visualizations with Shiny
+### 2. Creating interactive Visualizations with Shiny 
+- https://epirhandbook.com/en/dashboards-with-shiny.html
 
-### 3. Adding Filters and Complex interactions
 
 ---
 ## Further Resources
