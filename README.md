@@ -65,16 +65,18 @@ Lecture:
 
 ---
 
-## D.  Interactive Visualization with Shiny and ggplot
+## C.  Interactive Visualization with Shiny and ggplot
 
 Framework: Shiny
 Required Reading: https://r4ds.hadley.nz/
 
 ### 1. Visualizing Data with ggplot (Module 6)
 
-### 2. Creating interactive Visualizations with Shiny 
+### 2. Creating Interactive Visualizations with Shiny 
 - https://epirhandbook.com/en/dashboards-with-shiny.html
 
+### 3. Theming Shiny Applications with HTML and CSS
+- Let's give the last touch ups to our projects!
 
 ---
 ## Further Resources
