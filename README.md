@@ -43,38 +43,38 @@ Hands-on: [Cascading Stylesheets - Chapters 7-10](https://ebookcentral.proquest.
 
 ---
 
-## B. Automation and Scripting with R
+## B. Data Analytics and Cleaning with R
 
 Excercise: https://www.appliedepi.org/live/, https://www.appliedepi.org/tutorial/
 Reading: https://epirhandbook.com/en/r-basics.html
 
-### 1. Data Types
+### 1. Intro to RStudio & R Data Types (Module 1)
 
 Prepare: R Basics: https://tutorials.appliedepi.org/app/basics
-Lecture: Data Types in R
+Lecture: 
+ - Data Types and Functions in R (https://sydney-informatics-hub.github.io/lessonbmc/02-BMC_R_Day1_B/index.html)
 
-### 2. Complex Data Types
+### 2. Project Setup & Tidy Data (Module 2
 
-### 3. Conditions & Loops
+### 3. Cleaning Data with R (Module 3+4)
 
-### 4. Functions
+### 4. Group Data (Module 5)
+
+### 5. Joining and Pivoting Data (Module 7 - optional)
 
 
 ---
 
-## C. Data Visualization with Shiny
+## D.  Interactive Visualization with Shiny and ggplot
 
-Framework: Shiny (and maybe Quarto, RMarkdown)
+Framework: Shiny
 Required Reading: https://r4ds.hadley.nz/
 
-### 1. Storing and Loading Data
+### 1. Visualizing Data with ggplot (Module 6)
 
-### 2. Cleaning Data
+### 2. Creating interactive Visualizations with Shiny
 
-### 3. Visualizing Data
-
-### 4. Creating interactive Visualizations
-
+### 3. Adding Filters and Complex interactions
 
 ---
 ## Further Resources
