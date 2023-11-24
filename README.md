@@ -45,8 +45,13 @@ Hands-on: [Cascading Stylesheets - Chapters 7-10](https://ebookcentral.proquest.
 
 ## B. Data Analytics and Cleaning with R
 
-Excercise: https://www.appliedepi.org/live/, https://www.appliedepi.org/tutorial/
-Reading: https://epirhandbook.com/en/r-basics.html
+Excercise: 
+- https://www.appliedepi.org/live/,
+- https://www.appliedepi.org/tutorial/
+
+Reading:
+- https://epirhandbook.com/en/r-basics.html
+- Tidyverse
 
 ### 1. Intro to RStudio & R Data Types (Module 1)
 
