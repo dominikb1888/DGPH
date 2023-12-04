@@ -169,10 +169,10 @@ tmap_mode("view")   # set tmap mode to interactive
 tm_shape(data_sf_hf) +            # plot cases
   tm_dots(size=0.08,                  # cases colored by nearest clinic
           col='nearest_clinic') +    
-  tm_shape(sle_hf) +                    # plot clinic facilities in large black dots
+tm_shape(sle_hf) +                    # plot clinic facilities in large black dots
   tm_dots(size=0.3, col='black', alpha = 0.4) +      
   tm_text("name") +                   # overlay with name of facility
-  tm_view(set.view = c(-13.2284, 8.4699, 13), # adjust zoom (center coords, zoom)
+tm_view(set.view = c(-13.2284, 8.4699, 13), # adjust zoom (center coords, zoom)
           set.zoom.limits = c(13,14))+
-  tm_layout(title = "Cases, colored by nearest clinic")
+tm_layout(title = "Cases, colored by nearest clinic")
 
