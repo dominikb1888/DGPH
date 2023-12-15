@@ -43,9 +43,9 @@ bundles[[1]]$Condition
 # ls("package:BiocFHIR") |> grep(x=_, "process_[A-Z]", value=TRUE)
 
 # Check if the respective bundles have the Observation Resource
-# Change x$Observation (on both lines!) to another bundle type as needed
+# TODO: Change x$Observation (on both lines!) to another bundle type as needed
+# TODO: Change the processing function from process_Condition to the Resource you need
 
 hascond = sapply(bundles, function(x)length(x$Condition)>0)
-oo = do.call(rbind, lapply(bundles[hascond], function(x)process_Condition(x$Condition)))
-dim(oo)
-View(oo)
+conds = do.call(rbind, lapply(bundles[hascond], function(x)process_Condition(x$Condition)))
+View(conds$code.coding.code)
