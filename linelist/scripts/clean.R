@@ -24,24 +24,28 @@ pacman::p_load(
 # Load data --------------------------------------
 # Some Column Types set during import, if no complex mutation needed
 
-data <- read_csv(
-  here("data", "surveillance_linelist_20141201.csv"),
-  name_repair = "universal",
-  col_types = cols(
-    .default = col_guess(),
-    onset.date = col_date(format = "%m/%d/%Y"),
-    date.of.report = col_date(format = "%m/%d/%Y"),
-    gender = col_factor(c("m", "f")),
-    age.unit = col_factor(c("years", "months"))
-    
-  )
-)
 
+data <- read_csv(
+          here("data","surveillance_linelist_20141201.csv"), 
+          name_repair = "universal",
+          col_types = cols(
+            row_num = col_skip(),
+            onset.date = col_date(format = "%m/%d/%Y"), 
+            gender = col_factor(levels = c("m", "f")), 
+            age = col_integer(), 
+            age.unit = col_factor(levels = c("months","years")), 
+            wt..kg. = col_integer(), 
+            ht..cm. = col_integer(), 
+            fever = col_character(), 
+            date.of.report = col_date(format = "%m/%d/%Y")
+          ),
+        )
+      
 # Transform data --------------------------------------
 
 # Columns to recast types after mutation
 cols_log = c("fever", "chills", "cough", "aches", "vomit", "epilink")
-cols_fac = c("district_res","district_det", "admin3pcod","case_def")
+cols_fac = c("district_res","district_det", "admin3pcod","case_def", "hospital")
 
 data <- data |>
   
@@ -55,33 +59,33 @@ data <- data |>
          district_det = adm3_name_det)  |>
   
   ###
-  select(-row_num) |>
-  
-  ###
   mutate(
     across(cols_log, ~ as.logical(.x == "yes")),
+  
     
-    adult = ifelse(age >= 18, TRUE, FALSE),
-     
     wt_kg = ifelse(wt_kg < 0, NA, wt_kg),
-    
+    bmi = ifelse(bmi < 0, NA, bmi),
+   
     hospital = recode(hospital,
       "Mitilary Hospital" = "Military Hospital",
       "Port Hopital" = "Port Hospital",
       "Port" = "Port Hospital",
       "St. Mark's Maternity Hospital (SMMH)" = "SMMH"),
-    
+ 
+
     case_def = case_when(
       lab_confirmed == TRUE             ~ "Confirmed case",
       epilink == "yes" & fever == "yes" ~ "Suspect case",
       TRUE                              ~ "To investigate"),
-    
+
     age_years = case_when(
       age_unit == 'months'   ~ age/12,
       age_unit == 'years'    ~ age, 
       age_unit == NA       ~ age ),
     
-    # fix temperatures recorded in Farinheit
+    adult = ifelse(age >= 18, TRUE, FALSE),
+   
+    # fix temperatures recorded in Farenheit
     temp = case_when(
       temp > 90 & temp < 120 ~ (temp - 32) * 5 / 9,
       TRUE                   ~ temp),

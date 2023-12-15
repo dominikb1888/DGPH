@@ -46,71 +46,39 @@ Hands-on: [Cascading Stylesheets - Chapters 7-10](https://ebookcentral.proquest.
 ## B. Data Analytics and Cleaning with R
 
 Excercise: 
+- https://www.appliedepi.org/live/,
 - https://www.appliedepi.org/tutorial/
 
 Reading:
 - https://epirhandbook.com/en/r-basics.html
-- [Tidyverse](https://r4ds.had.co.nz/)
+- Tidyverse
 
 ### 1. Intro to RStudio & R Data Types (Module 1)
 
-Prepare: 
-  - R Basics: https://tutorials.appliedepi.org/app/basics
-
+Prepare: R Basics: https://tutorials.appliedepi.org/app/basics
 Lecture: 
  - Data Types and Functions in R (https://sydney-informatics-hub.github.io/lessonbmc/02-BMC_R_Day1_B/index.html)
  - Vectors and Lists https://jennybc.github.io/purrr-tutorial/bk00_vectors-and-lists.html
 
-### 2. Project Setup & Tidy Data (Module 2)
-
-Prepare:
-- https://tutorials.appliedepi.org/app/preparation
-
-Lecture:
-- https://epirhandbook.com/en/import-and-export.html
+### 2. Project Setup & Tidy Data (Module 2
 
 ### 3. Cleaning Data with R (Module 3+4)
 
-Prepare:
-- https://tutorials.appliedepi.org/app/cleaning
-
-Lecture:
-- https://epirhandbook.com/en/cleaning-data-and-core-functions.html
-- https://epirhandbook.com/en/working-with-dates.html
-- https://epirhandbook.com/en/characters-and-strings.html
-- https://epirhandbook.com/en/factors.html
-
 ### 4. Group Data (Module 5)
-
-Lecture:
-- https://epirhandbook.com/en/grouping-data.html
 
 ### 5. Joining and Pivoting Data (Module 7 - optional)
 
-Lecture:
-- https://epirhandbook.com/en/pivoting-data.html
-- https://epirhandbook.com/en/joining-data.html
-- https://epirhandbook.com/en/de-duplication.html
 
 ---
 
 ## C.  Interactive Visualization with Shiny and ggplot
 
+Framework: Shiny
+Required Reading: https://r4ds.hadley.nz/
+
 ### 1. Visualizing Data with ggplot (Module 6)
 
-Prepare:
-- https://tutorials.appliedepi.org/app/ggplot
-
-Lecture:
-- https://epirhandbook.com/en/tables-for-presentation.html
-- https://epirhandbook.com/en/ggplot-basics.html
-- https://epirhandbook.com/en/ggplot-tips.html
-- https://epirhandbook.com/en/reports-with-r-markdown.html
-- https://epirhandbook.com/en/dashboards-with-r-markdown.html
-
 ### 2. Creating Interactive Visualizations with Shiny 
-
-Lecture:
 - https://epirhandbook.com/en/dashboards-with-shiny.html
 
 ### 3. Theming Shiny Applications with HTML and CSS
