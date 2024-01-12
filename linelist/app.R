@@ -12,9 +12,8 @@ ui <- fluidPage(
 
     sidebarLayout(
         sidebarPanel(
-            selectInput("hospital","Hospital",levels(data$hospital))
-            ### Create a dropdown with options from our dataset ###
-            ### levels(data$hospital) -> this populates input$hospital ###
+            selectInput("hospital","Hospital",levels(data$hospital)),
+            sliderInput("age", "Age", min(data$age,na.rm=T), max(data$age, na.rm=T), c(0,70)),
         ),
         mainPanel(
             navset_card_underline(
@@ -22,7 +21,17 @@ ui <- fluidPage(
                 nav_panel("Plot", titlePanel("Age Classes"), plotOutput("ageClasses")),
                 nav_panel("Summary", titlePanel("Test Change"), plotOutput("ageTable")),
                 nav_panel("Table", titlePanel("Test2"))
-            )    
+            ),
+            p("This is a paragraph"),
+            tags$ul(
+                tags$li(tags$b("location_name"), " - the facility that the data were collected at"),
+                tags$li(tags$b("data_date"), " - the date the data were collected at"),
+                tags$li(tags$b("submitted_daate"), " - the date the data were submitted at"),
+                tags$li(tags$b("Province"), " - the province the data were collected at (all 'North' for this dataset)"),
+                tags$li(tags$b("District"), " - the district the data were collected at"),
+                tags$li(tags$b("age_group"), " - the age group the data were collected for (0-5, 5-14, 15+, and all ages)"),
+                tags$li(tags$b("cases_reported"), " - the number of cases reported for the facility/age group on the given date")
+            ),
         )
     )
 )
@@ -31,7 +40,9 @@ ui <- fluidPage(
 server <- function(input, output) {
     
     output$ageClasses <- renderPlot({
-        filtered_data <- data |> filter(hospital == input$hospital)
+        
+        filtered_data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
+        
         age_classes <- filtered_data |> 
             group_by(
                 age_class = ifelse(adult, "adult", "child")) |> 
@@ -41,7 +52,7 @@ server <- function(input, output) {
     })
     
     output$ageTable <- renderPlot({
-        filtered_data <- data |> filter(hospital == input$hospital)
+        filtered_data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
         age_table <- filtered_data |>
             tabyl(age_cat, gender) |>
             adorn_totals(where="both") |>
