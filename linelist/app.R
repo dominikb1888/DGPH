@@ -38,12 +38,12 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-    
+    filtered_data <- reactive({
+       data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
+    })
+
     output$ageClasses <- renderPlot({
-        
-        filtered_data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
-        
-        age_classes <- filtered_data |> 
+        age_classes <- filtered_data() |> 
             group_by(
                 age_class = ifelse(adult, "adult", "child")) |> 
             tally(sort = T)
@@ -52,8 +52,7 @@ server <- function(input, output) {
     })
     
     output$ageTable <- renderPlot({
-        filtered_data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
-        age_table <- filtered_data |>
+        age_table <- filtered_data() |>
             tabyl(age_cat, gender) |>
             adorn_totals(where="both") |>
             adorn_percentages(denominator = "col") |>
