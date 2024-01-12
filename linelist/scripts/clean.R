@@ -7,13 +7,8 @@ pacman::p_load(
   readr,
   styler, 
   tidyverse,
-  janitor,       # to clean column names
-  
-  sf,            # to manage spatial data using a Simple Feature format
-  tmap,          # to produce simple maps, works for both interactive and static maps
-  OpenStreetMap, # to add OSM basemap in ggplot map
-  spdep 
-)
+  janitor
+  )
 
 # Good if data is perfectly typed, else use load_csv
 # surv_raw <- import(here('data','surveillance_linelist_20141201.csv'))
@@ -101,82 +96,4 @@ data <- data |>
   
   ###
   distinct()
-
-
-glimpse(data)
-
-
-# Plot data --------------------------------------
-
-# Create a mapplot based on location of cases
-data_sf <- data |>
-  drop_na(lat,lon) |>
-  sf::st_as_sf(coords = c("lon", "lat"), crs = 4326)
-
-sle_adm3 <- read_sf(here("data","gis","shp","sle_admbnda_adm3_1m_gov_ocha_20161017.shp")) |>
-  janitor::clean_names() |> # standardize column names
-  filter(admin2name %in% c("Western Area Urban", "Western Area Rural")) # filter to keep certain areas
-
-sle_adm3_pop <- import(here("data", "gis", "population", "sle_admpop_adm3_2020_v2.csv")) |>
-  janitor::clean_names()
-
-sle_hf <- sf::read_sf(here("data", "gis", "shp", "healthsites.shp")) |> 
-  janitor::clean_names() |>
-  filter(amenity %in% c("hospital", "clinic", "doctors"))
-
-tmap_mode("plot")
-
-tm_shape(sle_adm3, bbox = c(-13.3, 8.43, -13.2, 8.5)) +     #
-  tm_polygons(col = "#F7F7F7") +
-  tm_borders(col = "#000000", lwd = 2) +
-  tm_text("admin3name")+
-tm_shape(data_sf) +
-  tm_dots(size=0.08, col='blue', alpha = 0.5) +
-  tm_layout(title = "Distribution of Ebola cases")   # give title to map
-
-
-data_adm <- data_sf |>
-  # join the administrative boundary file to the linelist, based on spatial intersection
-  sf::st_join(sle_adm3, join = st_intersects) 
-  # Keep the old column names and two new admin ones of interest
-  select(names(data_sf), admin3name, admin3pcod.y)
-  
-case_adm3 <- data_adm |> 
-  as_tibble() |>
-  group_by(admin3pcod.y, admin3name) |>
-  summarise(cases = n()) |>
-  arrange(desc(cases))
-
-case_adm3
-
-#Closest Health Facility
-data_sf_hf <- data_sf |>
-  st_join(sle_hf, join = st_nearest_feature) |>
-  select(case_id, osm_id, name, amenity) |>
-  rename("nearest_clinic" = "name")
-
-data_sf_hf
-
-
-# Count cases by health facility
-hf_catchment <- data_sf_hf %>%   # begin with linelist including nearest clinic data
-  as.data.frame() %>%                # convert from shapefile to dataframe
-  count(nearest_clinic,              # count rows by "name" (of clinic)
-        name = "case_n") %>%         # assign new counts column as "case_n"
-  arrange(desc(case_n))              # arrange in descending order
-
-hf_catchment                         # print to console
-
-tmap_mode("view")   # set tmap mode to interactive  
-
-# plot the cases and clinic points 
-tm_shape(data_sf_hf) +            # plot cases
-  tm_dots(size=0.08,                  # cases colored by nearest clinic
-          col='nearest_clinic') +    
-tm_shape(sle_hf) +                    # plot clinic facilities in large black dots
-  tm_dots(size=0.3, col='black', alpha = 0.4) +      
-  tm_text("name") +                   # overlay with name of facility
-tm_view(set.view = c(-13.2284, 8.4699, 13), # adjust zoom (center coords, zoom)
-          set.zoom.limits = c(13,14))+
-tm_layout(title = "Cases, colored by nearest clinic")
 
