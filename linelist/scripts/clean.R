@@ -56,7 +56,6 @@ data <- data |>
   ###
   mutate(
     across(cols_log, ~ as.logical(.x == "yes")),
-  
     
     wt_kg = ifelse(wt_kg < 0, NA, wt_kg),
     bmi = ifelse(bmi < 0, NA, bmi),
@@ -67,7 +66,6 @@ data <- data |>
       "Port" = "Port Hospital",
       "St. Mark's Maternity Hospital (SMMH)" = "SMMH"),
  
-
     case_def = case_when(
       lab_confirmed == TRUE             ~ "Confirmed case",
       epilink == "yes" & fever == "yes" ~ "Suspect case",
@@ -80,7 +78,7 @@ data <- data |>
     
     adult = ifelse(age >= 18, TRUE, FALSE),
    
-    # fix temperatures recorded in Farenheit
+    # fix temperatures recorded in Fahrenheit
     temp = case_when(
       temp > 90 & temp < 120 ~ (temp - 32) * 5 / 9,
       TRUE                   ~ temp),

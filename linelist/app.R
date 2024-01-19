@@ -1,6 +1,8 @@
 pacman::p_load(
     shiny, 
-    bslib
+    bslib,
+    ggpubr,
+    ggplot2,
     )
 
 source("scripts/clean.R")
@@ -20,7 +22,7 @@ ui <- fluidPage(
                 title = "Visualizations",
                 nav_panel("Plot", titlePanel("Age Classes"), plotOutput("ageClasses")),
                 nav_panel("Summary", titlePanel("Test Change"), plotOutput("ageTable")),
-                nav_panel("Table", titlePanel("Test2"))
+                nav_panel("Plot 2", titlePanel("Age Classes 2"), plotOutput("ageClasses2"))
             ),
             p("This is a paragraph"),
             tags$ul(
@@ -39,7 +41,9 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
     filtered_data <- reactive({
-       data <- data |> filter(hospital == input$hospital & age >= input$age[1] & age <= input$age[2])
+       data <- data |> filter(hospital == input$hospital & 
+                                  age >= input$age[1] & 
+                                  age <= input$age[2])
     })
 
     output$ageClasses <- renderPlot({
@@ -49,6 +53,11 @@ server <- function(input, output) {
             tally(sort = T)
         
         ggplot(age_classes, aes(x=age_class, y=n)) + geom_col()
+    })
+    
+    output$ageClasses2 <- renderPlot({
+        bardata <- filtered_data() |> group_by(age_cat) |> tally()
+        barplot(height = bardata$n, names = bardata$age_cat)
     })
     
     output$ageTable <- renderPlot({
